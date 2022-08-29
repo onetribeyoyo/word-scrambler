@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- ======================================================================= -->
+<!--  Copyright (c) Andrew R. Miller, 2000-2004.  All rights reserved.       -->
+<!-- ======================================================================= -->
+
+<!-- =====================================================================   -->
+
+<!DOCTYPE project [
+  <!ENTITY default.targets                 SYSTEM "../build-util.xml">
+
+  <!ENTITY custom.javadoc                  SYSTEM "build.custom.javadoc.xml">
+
+  <!ENTITY custom.test.classpath           SYSTEM "build.custom.test.classpath.xml">
+  <!ENTITY custom.classpath                SYSTEM "build.custom.classpath.xml">
+]>
+
+<!-- =====================================================================   -->
+
+<project default="main" basedir=".">
+  &default.targets;
+</project>
+
+<!-- =====================================================================   -->

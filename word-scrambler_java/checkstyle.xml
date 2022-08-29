@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.1//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_1.dtd">
+
+<module name="Checker">
+
+    <!-- Req04.8 Package-level descriptions of classes should be provided using standard Javadoc package.html files. -->
+    <module name="PackageHtmlCheck">
+        <property name="severity" value="warning"/>
+    </module>
+  
+    <module name="TreeWalker">
+
+        <!-- Req04.1 Comments shall be used to describe each class and method definition, regardless of visibility. Javadoc comments should be used -->
+        <!-- Req04.2 Within comments for methods, all parameters, all declared exceptions, and any return value shall be documented. Javadoc "@param", "@throws", and "@return tags" should be used. -->
+        <module name="JavadocMethodCheck">
+            <property name="allowThrowsTagsForSubclasses" value="false"/>
+            <property name="allowUndeclaredRTE" value="false"/>
+            <property name="allowMissingParamTags" value="false"/>
+            <property name="tokens" value="METHOD_DEF, CTOR_DEF"/>
+            <property name="severity" value="error"/>
+            <property name="scope" value="private"/>
+            <property name="allowMissingReturnTag" value="false"/>
+            <property name="allowMissingThrowsTags" value="false"/>
+        </module>
+
+        <!-- Req08.5 Fields should be documented with Javadoc comments as needed to improve clarity. -->
+        <module name="JavadocVariableCheck">
+            <property name="severity" value="warning"/>
+            <property name="scope" value="protected"/>
+        </module>
+
+        <!-- Req04.1 Comments shall be used to describe each class and method definition, regardless of visibility. Javadoc comments should be used -->
+        <!-- Req10.2 A Javadoc comment should be provided for each class declaration regardless of visibility. -->
+        <module name="JavadocTypeCheck">
+            <property name="authorFormat" value="[a-zA-Z0-9.]+"/>
+            <property name="tokens" value="CLASS_DEF, INTERFACE_DEF"/>
+            <property name="severity" value="error"/>
+            <property name="scope" value="private"/>
+            <property name="versionFormat" value="[a-zA-Z0-9.]+"/>
+        </module>
+        <!-- Added with Checkstyle-3.3 
+        <module name="JavadocStyle">
+            <property name="tokens" value="CLASS_DEF, INTERFACE_DEF"/>
+            <property name="severity" value="info"/>
+        </module>
+        -->
+        <!-- Req01.3 names (static finals) should use all uppercase with an underscore between the words of a multi-word name. -->
+        <module name="ConstantNameCheck">
+            <property name="severity" value="warning"/>
+            <property name="format" value="^[A-Z](_?[A-Z0-9]+)*$"/>
+        </module>
+
+        <!-- Req01.2 for variables, methods, classes, interfaces, and packages should use mixed case to separate words in a multi-word name. -->
+        <!-- Req06.1 Member function names should be named using a full English descriptor, using mixed case with the first letter of any non-initial word capitalized. -->
+        <module name="LocalFinalVariableNameCheck">
+            <property name="severity" value="warning"/>
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <!-- Req01.2 for variables, methods, classes, interfaces, and packages should use mixed case to separate words in a multi-word name. -->
+        <!-- Req06.1 Member function names should be named using a full English descriptor, using mixed case with the first letter of any non-initial word capitalized. -->
+        <module name="LocalVariableNameCheck">
+            <property name="severity" value="warning"/>
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <!-- Req01.2 for variables, methods, classes, interfaces, and packages should use mixed case to separate words in a multi-word name. -->
+        <!-- Req05.1 Field names should be named starting with a lower-case letter, and using upper-case for the first letter of subsequent words. -->
+        <module name="MemberNameCheck">
+            <property name="severity" value="warning"/>
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <!-- Req01.2 for variables, methods, classes, interfaces, and packages should use mixed case to separate words in a multi-word name. -->
+        <!-- Added with Checkstyle-3.3 
+        <module name="AbstractClassNameCheck">
+            <property name="severity" value="warning"/>
+            <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+        </module>
+        -->
+        <!-- Req06.1 Member function names should be named using a full English descriptor, using mixed case with the first letter of any non-initial word capitalized. -->
+        <module name="MethodNameCheck">
+            <property name="severity" value="warning"/>
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <!-- Req01.2 for variables, methods, classes, interfaces, and packages should use mixed case to separate words in a multi-word name. -->
+        <!-- Req10.4 Package names should begin with the reverse domain name of the organization, so "com.guidant" should be the base for all package names containing classes developed by Guidant. -->
+        <!-- Req10.5 Each individual name in a fully qualified package name should use mixed case, beginning with a lower-case letter and capitalizing each subsequent word in the name -->
+        <module name="PackageNameCheck">
+            <property name="severity" value="warning"/>
+            <property name="format" value="^[a-z]+(\.[a-zA-Z_][a-zA-Z0-9_]*)*$"/>
+        </module>
+        <!-- Req08.1 Parameter variable names should be named using mixed case and a first letter that is lower-case. -->
+        <module name="ParameterNameCheck">
+            <property name="severity" value="warning"/>
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <!-- Req01.2 for variables, methods, classes, interfaces, and packages should use mixed case to separate words in a multi-word name. -->
+        <!-- Req06.1 Member function names should be named using a full English descriptor, using mixed case with the first letter of any non-initial word capitalized. -->
+        <module name="StaticVariableNameCheck">
+            <property name="severity" value="info"/>
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <!-- Req01.2 for variables, methods, classes, interfaces, and packages should use mixed case to separate words in a multi-word name. -->
+        <!-- Req10.1 Classes and interfaces should be named using mixed case with the first letter capitalized. -->
+        <module name="TypeNameCheck">
+            <property name="tokens" value="CLASS_DEF, INTERFACE_DEF"/>
+            <property name="severity" value="warning"/>
+            <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- Req10.13 When importing the classes of a package, explicit import for each class should be used rather than the wildcard ("*") form of the import.  -->
+        <module name="AvoidStarImportCheck">
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="IllegalImportCheck">
+            <property name="illegalPkgs" value="sun"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="RedundantImportCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="UnusedImportsCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="FileLengthCheck">
+            <property name="severity" value="info"/>
+            <property name="max" value="2000"/>
+        </module>
+
+        <!-- Req02.03 Lines > 100 characters with conditional expressions shall be broken across multiple lines.-->
+        <!-- Req02.10 Each level of indentation should be represented with four spaces -->
+        <!-- Req02.11 code and comments should be limited to 100 characters per line. -->
+        <module name="LineLengthCheck">
+            <property name="severity" value="warning"/>
+            <property name="tabWidth" value="4"/>
+<!--
+            <property name="ignorePattern" value="[ \t]*\**[ \t]*\$Archive:?[ \t]*[a-zA-Z0-9._/:\\]*[ \t]*\$[ \t]*"/>
+-->
+            <!-- Exclude SCM Keyword pattern -->
+            <property name="ignorePattern" value="[ \t]*\**[ \t]*\$Archive:?[ \t]*[a-zA-Z0-9._/:\\]*[ \t]*\$[ \t]*"/>
+            <property name="max" value="100"/>
+        </module>
+        <module name="MethodLengthCheck">
+            <property name="tokens" value="METHOD_DEF, CTOR_DEF"/>
+            <property name="severity" value="info"/>
+            <property name="max" value="30"/>
+        </module>
+        <module name="ParameterNumberCheck">
+            <property name="tokens" value="METHOD_DEF, CTOR_DEF"/>
+            <property name="severity" value="info"/>
+            <property name="max" value="7"/>
+        </module>
+        <module name="EmptyForIteratorPadCheck">
+            <property name="option" value="nospace"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <!-- Req03.03 Unary operators such as "!", "++", and casting should be written with no spaces between them and their operands. -->
+        <!-- Req03.06 The primary operators ".", and "[ ]" should be written with no spaces around them -->
+        <module name="NoWhitespaceAfterCheck">
+            <property name="allowLineBreaks" value="true"/>
+            <property name="tokens" value="BNOT, DEC, DOT, INC, LNOT, UNARY_MINUS, UNARY_PLUS"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <!-- Req03.03 Unary operators such as "!", "++", and casting should be written with no spaces between them and their operands. -->
+        <!-- Req03.06 The primary operators ".", and "[ ]" should be written with no spaces around them -->
+        <module name="NoWhitespaceBeforeCheck">
+            <property name="allowLineBreaks" value="true"/>
+            <property name="tokens" value="SEMI, DOT, POST_DEC, POST_INC"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <!-- NOT SPECIFIED
+        <module name="OperatorWrapCheck">
+            <property name="option" value="nl"/>
+            <property name="tokens" value="BAND, BOR, BSR, BXOR, COLON, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, PLUS, QUESTION, SL, SR, STAR"/>
+            <property name="severity" value="warning"/>
+        </module>
+        -->
+        <!-- Req03.06 The primary operator "( )" should be written with no spaces around it when used in a method invocation. -->
+        <!-- Req03.07 The primary operator "( )" should be written with no space before it when used in a method declaration. -->
+        <module name="ParenPadCheck">
+            <property name="option" value="nospace"/>
+            <property name="tokens" value="CTOR_CALL, LPAREN, METHOD_CALL, RPAREN, SUPER_CTOR_CALL, TYPECAST"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <!-- Req02.08 Do not use tabs for indenting code; spaces should be used instead -->
+        <module name="TabCharacterCheck">
+            <property name="severity" value="warning"/>
+        </module>
+        <!-- Req03.05 Commas and semicolons contained within a statement should be followed by one space or a new line. -->
+        <module name="WhitespaceAfterCheck">
+            <property name="tokens" value="COMMA, SEMI, TYPECAST"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <!-- Req03.04 Assignment and conditional operators should have at least one space on either side of them. -->
+        <!-- Req03.10 All other operators should have at least one space on either side of them. -->
+        <module name="WhitespaceAroundCheck">
+            <property name="tokens" value="ASSIGN, BAND, BAND_ASSIGN, BOR, BOR_ASSIGN, BSR, BSR_ASSIGN, BXOR, BXOR_ASSIGN, COLON, DIV, DIV_ASSIGN, EQUAL, GE, GT, LAND, LCURLY, LE, LITERAL_ASSERT, LITERAL_CATCH, LITERAL_DO, LITERAL_ELSE, LITERAL_FINALLY, LITERAL_FOR, LITERAL_IF, LITERAL_RETURN, LITERAL_SYNCHRONIZED, LITERAL_TRY, LITERAL_WHILE, LOR, LT, MINUS, MINUS_ASSIGN, MOD, MOD_ASSIGN, NOT_EQUAL, PLUS, PLUS_ASSIGN, QUESTION, RCURLY, SL, SLIST, SL_ASSIGN, SR, SR_ASSIGN, STAR, STAR_ASSIGN"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="ModifierOrderCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="RedundantModifierCheck">
+            <property name="tokens" value="METHOD_DEF, VARIABLE_DEF"/>
+            <property name="severity" value="info"/>
+        </module>
+        <!-- Req09.05 Empty "catch" bodies should not be used. If it becomes necessary to catch an exception without rethrowing it, then comments should be provided clearly explaining the rationale for catching the exception.-->
+        <module name="EmptyBlockCheck">
+            <property name="option" value="text"/>
+            <property name="tokens" value="LITERAL_CATCH, LITERAL_DO, LITERAL_ELSE, LITERAL_FINALLY, LITERAL_IF, LITERAL_FOR, LITERAL_TRY, LITERAL_WHILE, STATIC_INIT"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <!-- Req02.04 The opening brace for each code block should be placed on its own line immediately following the associated control statement.  -->
+        <!-- Req02.05 The opening brace should be indented to line up with the beginning of the associated control statement -->
+        <module name="LeftCurlyCheck">
+            <property name="option" value="nl"/>
+            <property name="tokens" value="CLASS_DEF, CTOR_DEF, INTERFACE_DEF, LITERAL_CATCH, LITERAL_DO, LITERAL_ELSE, LITERAL_FINALLY, LITERAL_FOR, LITERAL_IF, LITERAL_SWITCH, LITERAL_SYNCHRONIZED, LITERAL_TRY, LITERAL_WHILE, METHOD_DEF"/>
+            <property name="severity" value="warning"/>
+            <property name="maxLineLength" value="80"/>
+        </module>
+
+        <!-- Req02.02 The body of all control structures (if, while, ...) shall be enclosed in braces even if the body contains only one statement.  -->
+        <module name="NeedBracesCheck">
+            <property name="tokens" value="LITERAL_DO, LITERAL_ELSE, LITERAL_IF, LITERAL_FOR, LITERAL_WHILE"/>
+            <property name="severity" value="error"/>
+        </module>
+
+        <!-- Req02.06 "else" and "else if" statements should be aligned with the associated "if" statements.  -->
+        <!-- Req02.07 "catch" and "finally" statements should be aligned with the associated "try" statements.  -->
+        <module name="RightCurlyCheck">
+            <property name="option" value="alone"/>
+            <property name="tokens" value="LITERAL_CATCH, LITERAL_ELSE, LITERAL_TRY"/>
+            <property name="severity" value="warning"/>
+        </module>
+
+        <module name="AvoidNestedBlocksCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="AvoidInlineConditionalsCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="DoubleCheckedLockingCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="EmptyStatementCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="EqualsHashCodeCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="HiddenFieldCheck">
+            <property name="tokens" value="PARAMETER_DEF, VARIABLE_DEF"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="IllegalInstantiationCheck">
+            <property name="severity" value="info"/>
+            <property name="classes" value="{}"/>
+        </module>
+        <module name="InnerAssignmentCheck">
+            <property name="tokens" value="ASSIGN, BAND_ASSIGN, BOR_ASSIGN, BSR_ASSIGN, BXOR_ASSIGN, DIV_ASSIGN, MINUS_ASSIGN, MOD_ASSIGN, PLUS_ASSIGN, SL_ASSIGN, SR_ASSIGN, STAR_ASSIGN"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="MagicNumberCheck">
+            <property name="tokens" value="NUM_DOUBLE, NUM_FLOAT, NUM_INT, NUM_LONG"/>
+            <property name="severity" value="info"/>
+            <property name="ignoreNumbers" value="-1, 0, 1, 2"/>
+        </module>
+        <module name="MissingSwitchDefaultCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="RedundantThrowsCheck">
+            <property name="allowSubclasses" value="false"/>
+            <property name="allowUnchecked" value="true"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="SimplifyBooleanExpressionCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="SimplifyBooleanReturnCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="VisibilityModifierCheck">
+            <property name="packageAllowed" value="false"/>
+            <property name="severity" value="info"/>
+            <property name="publicMemberPattern" value="^serialVersionUID"/>
+            <property name="protectedAllowed" value="false"/>
+        </module>
+        <!-- Req10.08 The "final" keyword should be avoided when declaring classes.-->
+        <module name="FinalClassCheck">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="InterfaceIsTypeCheck">
+            <property name="severity" value="info"/>
+            <property name="allowMarkerInterfaces" value="true"/>
+        </module>
+        <module name="HideUtilityClassConstructorCheck">
+            <property name="severity" value="info"/>
+        </module>
+<!--
+        <module name="DesignForExtensionCheck">
+            <property name="severity" value="warning"/>
+        </module>
+-->
+<!--
+        <module name="GenericIllegalRegexpCheck">
+            <property name="severity" value="warning"/>
+            <property name="ignoreCase" value="false"/>
+            <property name="format" value="^$"/>
+        </module>
+-->
+        <module name="TodoCommentCheck">
+            <property name="severity" value="error"/>
+            <property name="format" value="TODO:"/>
+        </module>
+        <module name="UpperEllCheck">
+            <property name="severity" value="info"/>
+        </module>
+
+
+        <!-- Req06.06 Member functions should have a McCabe complexity level of 10 or less. -->
+        <!-- Added with Checkstyle-3.3 
+        <module name="CyclomaticComplexity">
+            <property name="max" value="10"/>
+            <property name="severity" value="warning"/>
+        </module>
+        -->
+
+        <module name="ArrayTypeStyleCheck">
+            <property name="javaStyle" value="true"/>
+            <property name="severity" value="info"/>
+        </module>
+<!--
+        <module name="FinalParametersCheck">
+            <property name="tokens" value="METHOD_DEF, CTOR_DEF"/>
+            <property name="severity" value="warning"/>
+        </module>
+-->
+        <!-- Req02.01 The code blocks following control statements (not including the braces) shall be indented from the associated control statement. -->
+        <module name="Indentation">
+            <property name="basicOffset"     value="4"/>
+            <property name="braceAdjustment" value="0"/>
+            <property name="caseIndent"      value="4"/>
+            <property name="severity" value="warning"/>
+        </module>
+
+        <!-- Req04.04 The following comment template must be placed at the top of each Java source file. -->
+        <!--
+        <module name="RegexpHeader"/>
+        -->
+        <!-- Added with Checkstyle-3.3 
+        <module name="usage.UnusedLocalVariable"/>
+        -->
+    </module>
+</module>
